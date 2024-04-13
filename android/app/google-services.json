@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "877768213935",
+    "project_id": "ecommerce-b85ec",
+    "storage_bucket": "ecommerce-b85ec.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:877768213935:android:feedbde3a7b59beded1b5a",
+        "android_client_info": {
+          "package_name": "com.classcar200.e_commerce_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwjHl_sAkK2ga6Ijhz_GSldzHGJ35pM58"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:877768213935:android:d0aa9d84131c8f9bed1b5a",
+        "android_client_info": {
+          "package_name": "com.classcar200.ecommerce_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBwjHl_sAkK2ga6Ijhz_GSldzHGJ35pM58"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
