@@ -42,10 +42,8 @@ the user finally receives their product.
 ![App_ui](/checkout.png)
 ![App_ui](/payment.png)
 ![App_ui](/product.png)
-![App_ui](/product_detailes.png)
 ![App_ui](/settings.png)
 ![App_ui](/offers.png)
 ![App_ui](/notifications.png)
 ![App_ui](/navigations.png)
-![App_ui](/notifications.png)
 
