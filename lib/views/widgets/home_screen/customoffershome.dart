@@ -7,12 +7,12 @@ import '../../../controller/options/favourite_controller.dart';
 import '../../../core/constant/assetsImages.dart';
 import '../../../core/functions/translate_database.dart';
 import '../../../data/model/items_model.dart';
-
+  
 class CustomOffersHome extends GetView<HomePageControllerImp> {
   final ItemsModel itemsModel;
   const CustomOffersHome({super.key, required this.itemsModel});
 
-  @override
+  @override    
   Widget build(BuildContext context) {
     Get.put(FavouriteController());
     return InkWell(
@@ -31,15 +31,12 @@ class CustomOffersHome extends GetView<HomePageControllerImp> {
             children: [
               Column(
                 children: [
-                  Hero(
-                    tag: "${itemsModel.itemsId}",
-                    child: CachedNetworkImage(
-                      alignment: Alignment.center,
-                      imageUrl:
-                          "${AssetsImages.imageItems}/${itemsModel.itemsImages!}",
-                      height: 100,
-                      fit: BoxFit.fill,
-                    ),
+                  CachedNetworkImage(
+                    alignment: Alignment.center,
+                    imageUrl:
+                        "${AssetsImages.imageItems}/${itemsModel.itemsImages!}",
+                    height: 100,
+                    fit: BoxFit.fill,
                   ),
                   const SizedBox(height: 10),
                   Text(
@@ -48,7 +45,7 @@ class CustomOffersHome extends GetView<HomePageControllerImp> {
                       fontSize: 18,
                     ),
                   ),
-                  const SizedBox(height: 10),
+                  const SizedBox(height: 10), 
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,

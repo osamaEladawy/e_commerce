@@ -23,6 +23,7 @@ listOfProducts();
 
 class ItemsControllerImp extends ItemsController{
   List categories = [];
+ late ItemsModel itemModel ;
   List data = [];
   late int valueCat;
   late TextEditingController searchController;
@@ -54,7 +55,6 @@ class ItemsControllerImp extends ItemsController{
   }
 
 
-  //////////
 
 
   @override
@@ -65,7 +65,6 @@ class ItemsControllerImp extends ItemsController{
     update();
   }
 
-  ///////////
 
 
   @override
@@ -77,6 +76,9 @@ class ItemsControllerImp extends ItemsController{
     if(StatusRequest.success == statusRequest){
       if(response["status"] == "success"){
         data.addAll(response['data']);
+        data.map((element) {
+          itemModel = element;
+        });
       }else{
         statusRequest = StatusRequest.failure;
       }
@@ -84,7 +86,8 @@ class ItemsControllerImp extends ItemsController{
     update();
 
   }
-  /////////////
+
+
   @override
   checkSearch(value) {
     if(value.isEmpty){

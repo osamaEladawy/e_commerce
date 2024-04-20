@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../controller/all_home_controller/homepage_controller.dart';
-import '../../controller/options/myfavourite_controller.dart';
 import '../../core/class/handlingdata_view.dart';
 import '../../core/constant/assetsImages.dart';
 import '../../core/functions/translate_database.dart';
@@ -108,7 +107,7 @@ class HomePage extends StatelessWidget {
                               scrollDirection: Axis.horizontal,
                               shrinkWrap: true,
                               itemCount: controller.data.length,
-                              itemBuilder: (context, index) => CustomOffersHome(
+                              itemBuilder: (context, index) => CustomOffersHome( 
                                   itemsModel: controller.data[index]),
                               separatorBuilder:
                                   (BuildContext context, int index) =>

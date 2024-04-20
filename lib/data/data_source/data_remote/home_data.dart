@@ -11,7 +11,7 @@ class HomaPageData {
     return result.fold((l) => l, (r) => r);
   }
 
-    offers()async{
+    myOffers()async{
     var result = await curd.postRequest( ApiLink.offers, {});
     return result.fold((l) => l, (r) => r);
   }

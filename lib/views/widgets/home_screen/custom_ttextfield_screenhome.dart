@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:badges/badges.dart' as badges;
-import 'package:get/get_state_manager/get_state_manager.dart';
 
 import '../../../controller/options/myfavourite_controller.dart';
 
@@ -33,7 +30,7 @@ class CustomTextFieldScreenHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    MyFavoritesController controllerImpFav = Get.put(MyFavoritesController());
+    Get.put(MyFavoritesController());
     return Form(
       key: keyForm,
       child: Row(
@@ -93,25 +90,20 @@ class CustomTextFieldScreenHome extends StatelessWidget {
               ),
             ),
           ),
-          GetBuilder<MyFavoritesController>(
-            builder: (controller) => Container(
-              padding: const EdgeInsets.all(10),
-              margin:
-                  const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
-              width: 60,
-              height: 64,
-              decoration: BoxDecoration(
-                color: Colors.grey[200],
-                borderRadius: const BorderRadius.all(Radius.circular(12)),
-              ),
-              child: IconButton(
-                onPressed: onPressedFavourite,
-                icon: Icon(
-                  Icons.favorite,
-                  color: controller.data.length > 0
-                      ? Colors.red
-                      : Colors.grey[600],
-                ),
+          Container(
+            padding: const EdgeInsets.all(10),
+            margin: const EdgeInsets.symmetric(horizontal: 10, vertical: 10),
+            width: 60,
+            height: 64,
+            decoration: BoxDecoration(
+              color: Colors.grey[200],
+              borderRadius: const BorderRadius.all(Radius.circular(12)),
+            ),
+            child: IconButton(
+              onPressed: onPressedFavourite,
+              icon: Icon(
+                Icons.favorite,
+                color: Colors.grey[600],
               ),
             ),
           ),

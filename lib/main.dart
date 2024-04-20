@@ -26,11 +26,13 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme:controller.appTheme,
+      themeMode: ThemeMode.system,
+     // darkTheme: controller.appThemeDark,
       translations: MyTransactions(),
       locale: controller.language,
       getPages: getPages,
       initialBinding: MyBidding(),
-      //home: const CheckoutPage()
+      //home: const MyTextProject()
     );
   }
 }

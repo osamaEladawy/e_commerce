@@ -15,7 +15,7 @@ class CheckOut extends StatelessWidget {
     CheekOutControllerImp controller = Get.put(CheekOutControllerImp());
     return Scaffold(
       bottomNavigationBar: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 30),
+        margin: const EdgeInsets.symmetric(horizontal: 30,vertical: 7),
         child: MaterialButton(
           onPressed: () {
             controller.checkOut();
@@ -139,7 +139,7 @@ class CheckOut extends StatelessWidget {
                               controller.models[index].addressId!);
                         },
                         child: CustomCardChoose(
-                          ischeck: controller.addressId ==
+                          isCheck: controller.addressId ==
                                   controller.models[index].addressId
                               ? true
                               : false,

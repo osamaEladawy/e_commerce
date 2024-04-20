@@ -62,14 +62,6 @@ class ItemsGridView extends GetView<ItemsControllerImp> {
                          const Icon(Icons.alarm_rounded),
                           const SizedBox(width: 5,),
                           Text("${controller.services.preferences!.getString("deliverytime")} minutes")
-                          // ...List.generate(
-                          //   5,
-                          //   (index) => Icon(
-                          //     Icons.star,
-                          //     size: 15,
-                          //     color: Colors.yellow[600],
-                          //   ),
-                          // ),
                         ],
                       )
                     ],
@@ -118,7 +110,7 @@ class ItemsGridView extends GetView<ItemsControllerImp> {
                               controller.setFavourite(itemsModel.itemsId, 1);
                               controller.addFavourite(itemsModel.itemsId!);
                             }
-                          },
+                          }, 
                           icon: Icon(
                             controller.isFavourite[itemsModel.itemsId] == 1
                                 ? Icons.favorite

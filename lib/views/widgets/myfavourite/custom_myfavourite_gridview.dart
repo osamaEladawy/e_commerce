@@ -15,7 +15,7 @@ class CustomMyFavouriteGridView extends GetView<MyFavoritesController> {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+    return GestureDetector(
       onTap: () {
          //controller.goToDetailsProduct(itemsModel);
       },
@@ -24,15 +24,12 @@ class CustomMyFavouriteGridView extends GetView<MyFavoritesController> {
           padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
           child: Column(
             children: [
-              Hero(
-                tag: "${myFavouriteModel.itemsId}",
-                child: CachedNetworkImage(
-                  alignment: Alignment.center,
-                  imageUrl:
-                      "${AssetsImages.imageItems}/${myFavouriteModel.itemsImages!}",
-                  height: Get.width /4.2,
-                  fit: BoxFit.fill,
-                ),
+              CachedNetworkImage(
+                alignment: Alignment.center,
+                imageUrl:
+                    "${AssetsImages.imageItems}/${myFavouriteModel.itemsImages!}",
+                height: Get.width /4.2,
+                fit: BoxFit.fill,
               ),
               const SizedBox(height:15),
               Text(

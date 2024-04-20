@@ -47,6 +47,7 @@ class FavouriteController extends GetxController {
         statusRequest = StatusRequest.failure;
       }
     }
+    update();
   }
 
   removeFavourite(int itemid) async {
@@ -55,7 +56,7 @@ class FavouriteController extends GetxController {
     var response = await favouriteData.removeFavouriteData(
         services.preferences!.getString("id")!, itemid);
     statusRequest = handleStatus(response);
-    if (StatusRequest.success == statusRequest) {
+    if (StatusRequest.success == statusRequest) { 
       if (response["status"] == "success") {
         // data.addAll(response['data']);
         Get.rawSnackbar(
@@ -70,5 +71,6 @@ class FavouriteController extends GetxController {
         statusRequest = StatusRequest.failure;
       }
     }
+     update();
   }
 }

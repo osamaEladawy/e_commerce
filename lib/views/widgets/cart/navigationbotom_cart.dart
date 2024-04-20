@@ -11,7 +11,6 @@ TextStyle style = const TextStyle(
   color: Colors.black,
 );
 
-/////////////////////////////////////////////////////////////////
 
 class CustomNavigationBarCart extends GetView<CratControllerImp> {
   final String price;

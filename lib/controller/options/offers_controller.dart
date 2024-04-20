@@ -17,6 +17,7 @@ search();
 }
 
 class OffersControllerImp extends OffersController{
+
   StatusRequest statusRequest = StatusRequest.none;
   OffersData offersData = OffersData(curd: Get.find());
   String? lang ;
@@ -32,7 +33,7 @@ class OffersControllerImp extends OffersController{
     statusRequest = StatusRequest.loading;
     update();
     var response = await offersData.getData();
-    statusRequest = handleStatus(response);
+    statusRequest = handleStatus(response); 
     if(StatusRequest.success == statusRequest){
       if(response["status"] == "success"){
         List lists = response["data"];

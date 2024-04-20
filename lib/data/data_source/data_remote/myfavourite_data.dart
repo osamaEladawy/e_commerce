@@ -7,7 +7,7 @@ class MyFavoriteData{
   Curd curd;
   MyFavoriteData({required this.curd});
 
-  myFavorite(String userid)async{
+  myFavoriteData(String userid)async{
     var response = await curd.postRequest(ApiLink.viewFav, {
       'userid' : userid
     });

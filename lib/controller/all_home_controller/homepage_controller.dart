@@ -80,8 +80,8 @@ class HomePageControllerImp extends HomePageController{
   @override
   offers() async{
     statusRequest = StatusRequest.loading;
-    update();
-    var response = await homaPageData.offers();
+    //update();
+    var response = await homaPageData.myOffers();
     statusRequest = handleStatus(response);
     if(StatusRequest.success == statusRequest){
       if(response["status"] == "success"){

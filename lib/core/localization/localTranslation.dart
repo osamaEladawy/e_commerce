@@ -8,22 +8,24 @@ import 'package:get/get.dart';
   this is class used to change the language in application,
   steps;
   1-create variables from Local,
-  2-create instance from my service,to can me used prefrence,
+  2-create instance from my service,to can me used preference,
   3-create function to used choose the language and saved it,
-  4-intialize default language in onitial,
+  4-initialize default language in initial,
 */
 
 class LocalLanguagesController extends GetxController{
 
-  late bool islocationServerEnabled;
+  late bool isLocationServerEnabled;
   late LocationPermission permission;
   late Position position;
-  late  Geolocator geolocator;
+  late  Geolocator geoLocator;
 
 
   Locale? language;
 
   ThemeData appTheme = themeEnglish;
+
+  ThemeData appThemeDark = themeEnglishDark;
 
   MyServices services = Get.find();
 
@@ -31,15 +33,16 @@ class LocalLanguagesController extends GetxController{
   changeLanguage(String codeLanguage){
     Locale locale = Locale(codeLanguage);
     services.preferences!.setString("lang", codeLanguage);
-    appTheme = codeLanguage == "ar" ? themeArabic : themeEnglish ;
+    appTheme = codeLanguage == "ar" ? themeArabic  : themeEnglish ;
+    appThemeDark = codeLanguage == "ar" ? themeArabicDark : themeEnglishDark ;
     Get.changeTheme(appTheme);
    //to update the user's choice,
     Get.updateLocale(locale);
   }
 
   requestPermission2()async{
-  islocationServerEnabled = await Geolocator.isLocationServiceEnabled();
-  if(!islocationServerEnabled){
+    isLocationServerEnabled = await Geolocator.isLocationServiceEnabled();
+  if(!isLocationServerEnabled){
     print("location service is not enabled");
     return Get.snackbar("Hello!", "please enable location service",
         backgroundColor: Colors.grey,borderRadius: 25);

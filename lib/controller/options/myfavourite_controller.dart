@@ -14,6 +14,7 @@ class MyFavoritesController extends GetxController {
   StatusRequest statusRequest = StatusRequest.none;
   MyServices services = Get.find();
 
+
   List<MyFavouriteModel> data = [];
   List<ItemsModel> listOfModel = [];
 
@@ -25,7 +26,7 @@ class MyFavoritesController extends GetxController {
   getData() async {
     data.clear();
     statusRequest = StatusRequest.loading;
-    var response = await myFavorite.myFavorite(services.preferences!.getString("id")!);
+    var response = await myFavorite.myFavoriteData(services.preferences!.getString("id")!);
     //check for data, it is map || status request,
     statusRequest = handleStatus(response);
     if(StatusRequest.success == statusRequest){

@@ -32,7 +32,7 @@ logOutt(){
 
   List words =[
     {"title": "Home","icon":Icons.home},
-    {"title": "notifiy","icon":Icons.notifications_active_outlined},
+    {"title": "notifications","icon":Icons.notifications_active_outlined},
     {"title": "Offers","icon":Icons.shop_2_outlined},
     {"title": "settings","icon":Icons.settings},
   ];

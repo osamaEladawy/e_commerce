@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:get/get.dart';   
 
 import '../../../controller/options/favourite_controller.dart';
 import '../../../controller/options/offers_controller.dart';
@@ -27,15 +27,12 @@ class CustomCardOffers extends GetView<OffersControllerImp> {
             children: [
               Column(
                 children: [
-                  Hero(
-                    tag: "${itemsModel.itemsId}",
-                    child: CachedNetworkImage(
-                      alignment: Alignment.center,
-                      imageUrl:
-                      "${AssetsImages.imageItems}/${itemsModel.itemsImages!}",
-                      height: 100,
-                      fit: BoxFit.fill,
-                    ),
+                  CachedNetworkImage(
+                    alignment: Alignment.center,
+                    imageUrl:
+                    "${AssetsImages.imageItems}/${itemsModel.itemsImages!}",
+                    height: 100,
+                    fit: BoxFit.fill,
                   ),
                   const SizedBox(height: 10),
                   Text(

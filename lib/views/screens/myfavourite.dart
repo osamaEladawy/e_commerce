@@ -43,7 +43,7 @@ class MyFavourite extends StatelessWidget {
                             crossAxisCount: 2, childAspectRatio: 0.70),
                     itemBuilder: (context, index) {
                       return CustomMyFavouriteGridView(
-                        myFavouriteModel: controller.data[index],
+                        myFavouriteModel: controller.data[index], //itemsModel: null,
                       );
                     }),
               ),
