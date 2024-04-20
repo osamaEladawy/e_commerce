@@ -60,9 +60,6 @@ class CustomTextFieldScreenHome extends StatelessWidget {
                     ),
                   ),
                   border: InputBorder.none,
-                  // borderRadius: BorderRadius.circular(20),
-                  //borderSide: BorderSide(color: Colors.grey.shade50),
-
                   enabledBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(20),
                     borderSide: BorderSide(color: Colors.grey.shade50),

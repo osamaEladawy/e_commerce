@@ -33,7 +33,7 @@ the user finally receives their product.
 ![App_ui](/b3.png)
 ![App_ui](/b4.png)
 ![App_ui](/uii.png)
-![App_ui](/ui.png)
+![App_ui](/new_ui.png)
 ![App_ui](/lang.png)
 ![App_ui](/maps.png)
 ![App_ui](/my_cart.png)

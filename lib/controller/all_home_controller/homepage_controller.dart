@@ -164,7 +164,7 @@ class HomePageControllerImp extends HomePageController{
 
   @override
   search() {
-    if(formState.currentState!.validate()){
+    if(controller.text.isNotEmpty){
       isSearch = true;
       listOfProducts();
     }else{
