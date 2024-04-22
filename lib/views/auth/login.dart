@@ -17,9 +17,16 @@ class Login extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(LoginControllerImp());
+    final LoginControllerImp controller = Get.put(LoginControllerImp());
     return Scaffold(
       backgroundColor: Colors.white,
+      bottomNavigationBar: CostomNavigationToScreens(
+        onTap: () {
+          controller.goToSignup();
+        },
+        text1: "22".tr,
+        text2: "23".tr,
+      ),
       appBar: AppBar(
         elevation: 0.0,
         backgroundColor: Colors.white,
@@ -63,7 +70,7 @@ class Login extends StatelessWidget {
                             },
                             suffixIcon: IconButton(
                               onPressed: () {},
-                              icon:const Icon(
+                              icon: const Icon(
                                 Icons.email_outlined,
                               ),
                             ),
@@ -88,7 +95,7 @@ class Login extends StatelessWidget {
                             onPressed: () {
                               controller.showAndHiddinPassword();
                             },
-                            icon:const Icon(
+                            icon: const Icon(
                               Icons.lock_outline,
                             ),
                             highlightColor: Colors.purple[100],
@@ -106,7 +113,7 @@ class Login extends StatelessWidget {
                           height: 15,
                         ),
                         Container(
-                          padding:const EdgeInsets.symmetric(horizontal: 10),
+                          padding: const EdgeInsets.symmetric(horizontal: 10),
                           alignment: Alignment.centerRight,
                           child: InkWell(
                             onTap: () {
@@ -134,13 +141,6 @@ class Login extends StatelessWidget {
                         ),
                         const SizedBox(height: 20),
                         const OthersAwayLogin(),
-                        CostomNavigationToScreens(
-                          onTap: () {
-                            controller.goToSignup();
-                          },
-                          text1: "22".tr,
-                          text2: "23".tr,
-                        ),
                       ],
                     ),
                   )
