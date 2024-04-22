@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../../controller/auth/sign_up_controller.dart';
@@ -15,9 +17,16 @@ class SignUp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(SignUpControllerImp());
+    SignUpController controller = Get.put(SignUpControllerImp());
     return Scaffold(
       backgroundColor: Colors.white,
+      bottomNavigationBar: CostomNavigationToScreens(
+        onTap: () {
+          controller.goToLogin();
+        },
+        text1: "37".tr,
+        text2: "38".tr,
+      ),
       appBar: AppBar(
         elevation: 0.0,
         backgroundColor: Colors.white,
@@ -37,7 +46,9 @@ class SignUp extends StatelessWidget {
               onWillPop: exitDialog,
               child: ListView(
                 children: [
-                  const SizedBox(height: 10,),
+                  const SizedBox(
+                    height: 10,
+                  ),
                   CustomTextTitle(text: "26".tr),
                   const SizedBox(
                     height: 15,
@@ -58,7 +69,7 @@ class SignUp extends StatelessWidget {
                           },
                           suffixIcon: IconButton(
                             onPressed: () {},
-                            icon:const Icon(
+                            icon: const Icon(
                               Icons.person,
                             ),
                           ),
@@ -80,7 +91,7 @@ class SignUp extends StatelessWidget {
                           },
                           suffixIcon: IconButton(
                             onPressed: () {},
-                            icon:const Icon(
+                            icon: const Icon(
                               Icons.email_outlined,
                             ),
                           ),
@@ -103,7 +114,7 @@ class SignUp extends StatelessWidget {
                           },
                           suffixIcon: IconButton(
                             onPressed: () {},
-                            icon:const Icon(
+                            icon: const Icon(
                               Icons.phone,
                             ),
                           ),
@@ -129,7 +140,7 @@ class SignUp extends StatelessWidget {
                             onPressed: () {
                               controller.showAndHiddenPass();
                             },
-                            icon:const Icon(
+                            icon: const Icon(
                               Icons.lock_outline,
                             ),
                             highlightColor: Colors.purple.shade200,
@@ -154,14 +165,6 @@ class SignUp extends StatelessWidget {
                             style: const TextStyle(color: Colors.white70),
                           ),
                           onPressed: controller.signUp,
-                        ),
-                        const SizedBox(height: 20),
-                        CostomNavigationToScreens(
-                          onTap: () {
-                            controller.goToLogin();
-                          },
-                          text1: "37".tr,
-                          text2: "38".tr,
                         ),
                       ],
                     ),

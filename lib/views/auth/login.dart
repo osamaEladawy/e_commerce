@@ -17,7 +17,7 @@ class Login extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final LoginControllerImp controller = Get.put(LoginControllerImp());
+     LoginControllerImp controller = Get.put(LoginControllerImp());
     return Scaffold(
       backgroundColor: Colors.white,
       bottomNavigationBar: CostomNavigationToScreens(
