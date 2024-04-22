@@ -95,8 +95,9 @@ class Login extends StatelessWidget {
                             onPressed: () {
                               controller.showAndHiddinPassword();
                             },
-                            icon: const Icon(
-                              Icons.lock_outline,
+                            icon:  Icon(
+                              Icons.visibility,
+                              color: !controller.isShowingPassword  ? Colors.blue : null,
                             ),
                             highlightColor: Colors.purple[100],
                           ),

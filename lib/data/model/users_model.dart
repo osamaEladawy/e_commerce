@@ -7,6 +7,7 @@ class UsersModel {
   int? usersVerfiy;
   int? usersApprove;
   String? usersCreate;
+  String? usersImage;
 
   UsersModel(
       {this.usersId,
@@ -16,7 +17,8 @@ class UsersModel {
       this.usersPhone,
       this.usersVerfiy,
       this.usersApprove,
-      this.usersCreate});
+      this.usersCreate,
+      this.usersImage});
 
   UsersModel.fromJson(Map<String, dynamic> json) {
     usersId = json['users_id'];
@@ -27,6 +29,7 @@ class UsersModel {
     usersVerfiy = json['users_verfiy'];
     usersApprove = json['users_approve'];
     usersCreate = json['users_create'];
+    usersImage = json['users_image'];
   }
 
   Map<String, dynamic> toJson() {
@@ -39,6 +42,7 @@ class UsersModel {
     data['users_verfiy'] = this.usersVerfiy;
     data['users_approve'] = this.usersApprove;
     data['users_create'] = this.usersCreate;
+    data['users_image'] = this.usersImage;
     return data;
   }
 }

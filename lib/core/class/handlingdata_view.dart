@@ -1,3 +1,5 @@
+// ignore_for_file: deprecated_member_use
+
 import 'package:e_commerce_app/core/class/status_request.dart';
 import 'package:e_commerce_app/core/constant/assetsImages.dart';
 import 'package:flutter/material.dart';
@@ -50,7 +52,6 @@ class HandlingDataView extends StatelessWidget {
   }
 }
 
-////////////////////////////////////////////////////////////////////////////////
 class HandlingDataRequest extends StatelessWidget {
   final StatusRequest statusRequest;
   final Widget widget;

@@ -23,7 +23,7 @@ class Curd{
 
 
   Future<Either<StatusRequest,Map>>postRequest(String url ,Map data)async{
-   //try{
+  
      if(await checkInternet()){
        var request = await http.post(Uri.parse(url),body: data);
        print("intocurd ..........................${request.statusCode}");
@@ -37,10 +37,6 @@ class Curd{
      }else{
        return const Left(StatusRequest.offlineFailure);
      }
-   // }catch(e){
-   //   print(e.toString());
-   //   return const Left(StatusRequest.internetExseption);
-   // }
 
   }
 

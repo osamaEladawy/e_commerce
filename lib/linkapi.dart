@@ -50,5 +50,7 @@ static const String ordersDetials = "$server/orders/detials.php";
 static const String archiveOrders = "$server/orders/archive.php";
 //rating
 static const String rating = "$server/rating.php";
+//users
+static const String users = "$server/users.php";
 
 }

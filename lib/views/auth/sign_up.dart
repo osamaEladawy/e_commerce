@@ -1,6 +1,8 @@
 // ignore_for_file: deprecated_member_use
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import '../../controller/auth/sign_up_controller.dart';
 import '../../core/class/handlingdata_view.dart';
@@ -44,132 +46,176 @@ class SignUp extends StatelessWidget {
             statusRequest: controller.statusRequest,
             widget: WillPopScope(
               onWillPop: exitDialog,
-              child: ListView(
-                children: [
-                  const SizedBox(
-                    height: 10,
-                  ),
-                  CustomTextTitle(text: "26".tr),
-                  const SizedBox(
-                    height: 15,
-                  ),
-                  CustomTextbody(
-                    text: "27".tr,
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Form(
-                    key: controller.formState,
-                    child: Column(
-                      children: [
-                        CostomTextFormFieled(
-                          validator: (value) {
-                            return validateInput(value!, 3, 15, "username");
-                          },
-                          suffixIcon: IconButton(
-                            onPressed: () {},
-                            icon: const Icon(
-                              Icons.person,
-                            ),
-                          ),
-                          controller: controller.username,
-                          hintText: '35'.tr,
-                          labeltext: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 10),
-                            child: Text(
-                              '32'.tr,
-                            ),
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        CostomTextFormFieled(
-                          validator: (value) {
-                            return validateInput(value!, 5, 100, "email");
-                          },
-                          suffixIcon: IconButton(
-                            onPressed: () {},
-                            icon: const Icon(
-                              Icons.email_outlined,
-                            ),
-                          ),
-                          controller: controller.email,
-                          hintText: '30'.tr,
-                          labeltext: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 10),
-                            child: Text(
-                              '28'.tr,
-                            ),
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        CostomTextFormFieled(
-                          keyboardType: TextInputType.phone,
-                          validator: (value) {
-                            return validateInput(value!, 11, 11, "phone");
-                          },
-                          suffixIcon: IconButton(
-                            onPressed: () {},
-                            icon: const Icon(
-                              Icons.phone,
-                            ),
-                          ),
-                          // prefixText: "+20  ",
-                          controller: controller.phone,
-                          hintText: '34'.tr,
-                          labeltext: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 10),
-                            child: Text(
-                              '33'.tr,
-                            ),
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 15,
-                        ),
-                        CostomTextFormFieled(
-                          validator: (value) {
-                            return validateInput(value!, 5, 20, "password");
-                          },
-                          obscureText: controller.isShowingPassword,
-                          suffixIcon: IconButton(
-                            onPressed: () {
-                              controller.showAndHiddenPass();
-                            },
-                            icon: const Icon(
-                              Icons.lock_outline,
-                            ),
-                            highlightColor: Colors.purple.shade200,
-                          ),
-                          controller: controller.password,
-                          hintText: '31'.tr,
-                          labeltext: Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 10),
-                            child: Text(
-                              '29'.tr,
-                            ),
-                          ),
-                        ),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        CustomActionButton(
-                          backgroundColor: Colors.orange,
-                          color: Colors.deepOrangeAccent[200],
-                          text: Text(
-                            "36".tr,
-                            style: const TextStyle(color: Colors.white70),
-                          ),
-                          onPressed: controller.signUp,
-                        ),
-                      ],
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    const SizedBox(
+                      height: 10,
                     ),
-                  ),
-                ],
+                    CustomTextTitle(text: "26".tr),
+                    const SizedBox(
+                      height: 15,
+                    ),
+                    CustomTextbody(
+                      text: "27".tr,
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    GestureDetector(
+                      onTap: () async {
+                        controller.uploadMyImage();
+                      },
+                      child: Container(
+                        height: 100,
+                        width: 100,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(50),
+                          color: Colors.deepOrangeAccent[200],
+                        ),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(50),
+                          child: controller.file != null
+                              ? Image.file(
+                                  controller.file!,
+                                  fit: BoxFit.cover,
+                                )
+                              : controller.url != null ||
+                                      controller.url!.isNotEmpty
+                                  ? CachedNetworkImage(
+                                      imageUrl: controller.url!)
+                                  : null,
+                        ),
+                      ),
+                    ),
+                    Text(
+                      "Select Image",
+                      style: Theme.of(context)
+                          .textTheme
+                          .bodyText1!
+                          .copyWith(color: Colors.grey[500]),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    Form(
+                      key: controller.formState,
+                      child: Column(
+                        children: [
+                          CostomTextFormFieled(
+                            validator: (value) {
+                              return validateInput(value!, 3, 15, "username");
+                            },
+                            suffixIcon: IconButton(
+                              onPressed: () {},
+                              icon: const Icon(
+                                Icons.person,
+                              ),
+                            ),
+                            controller: controller.username,
+                            hintText: '35'.tr,
+                            labeltext: Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 10),
+                              child: Text(
+                                '32'.tr,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          CostomTextFormFieled(
+                            validator: (value) {
+                              return validateInput(value!, 5, 100, "email");
+                            },
+                            suffixIcon: IconButton(
+                              onPressed: () {},
+                              icon: const Icon(
+                                Icons.email_outlined,
+                              ),
+                            ),
+                            controller: controller.email,
+                            hintText: '30'.tr,
+                            labeltext: Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 10),
+                              child: Text(
+                                '28'.tr,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          CostomTextFormFieled(
+                            keyboardType: TextInputType.phone,
+                            validator: (value) {
+                              return validateInput(value!, 11, 11, "phone");
+                            },
+                            suffixIcon: IconButton(
+                              onPressed: () {},
+                              icon: const Icon(
+                                Icons.phone,
+                              ),
+                            ),
+                            // prefixText: "+20  ",
+                            controller: controller.phone,
+                            hintText: '34'.tr,
+                            labeltext: Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 10),
+                              child: Text(
+                                '33'.tr,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 15,
+                          ),
+                          CostomTextFormFieled(
+                            validator: (value) {
+                              return validateInput(value!, 5, 20, "password");
+                            },
+                            obscureText: controller.isShowingPassword,
+                            suffixIcon: IconButton(
+                              onPressed: () {
+                                controller.showAndHiddenPass();
+                              },
+                              icon: Icon(
+                                Icons.visibility,
+                                color: !controller.isShowingPassword
+                                    ? Colors.blue
+                                    : null,
+                              ),
+                            ),
+                            controller: controller.password,
+                            hintText: '31'.tr,
+                            labeltext: Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 10),
+                              child: Text(
+                                '29'.tr,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 20,
+                          ),
+                          CustomActionButton(
+                            backgroundColor: Colors.orange,
+                            color: Colors.deepOrangeAccent[200],
+                            text: Text(
+                              "36".tr,
+                              style: const TextStyle(color: Colors.white70),
+                            ),
+                            onPressed: controller.signUp,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
