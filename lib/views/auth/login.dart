@@ -17,12 +17,12 @@ class Login extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-     LoginControllerImp controller = Get.put(LoginControllerImp());
+    LoginControllerImp controllerImp = Get.put(LoginControllerImp());
     return Scaffold(
       backgroundColor: Colors.white,
       bottomNavigationBar: CostomNavigationToScreens(
         onTap: () {
-          controller.goToSignup();
+          controllerImp.goToSignup();
         },
         text1: "22".tr,
         text2: "23".tr,
