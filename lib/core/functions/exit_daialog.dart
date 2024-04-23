@@ -9,6 +9,10 @@ Future<bool>exitDialog(){
    Get.defaultDialog(
      backgroundColor: Colors.grey[250],
      barrierDismissible: false,
+    titleStyle: const TextStyle(
+      fontSize: 18,
+      fontWeight: FontWeight.bold
+    ),
     title: "Important",
     content:const Text("Are you want to exit the application"),
     actions: [

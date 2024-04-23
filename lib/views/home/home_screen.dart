@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../controller/all_home_controller/homescreen_controller.dart';
+import '../../core/functions/exit_daialog.dart';
 import '../widgets/home_screen/custom_appBar.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -51,14 +52,7 @@ class HomeScreen extends StatelessWidget {
         body: WillPopScope(
           child: controller.pages.elementAt(controller.currentPage),
           onWillPop: () {
-            Get.defaultDialog(
-                title: "Haye!",
-                middleText: "you want to exit the application",
-                onCancel: () {},
-               onConfirm: (){
-                  exit(0);
-               });
-            return Future.value(false);
+            return exitDialog();
           },
         ),
       ),
