@@ -19,7 +19,6 @@ abstract class SettingController extends GetxController{
   goToArchive();
   changeSwitch(bool val);
   changeNotification(bool val);
-  goToProfile();
   logOutGoogle();
   goToFavouritePage();
   goToCartPage();
@@ -107,6 +106,7 @@ class SettingControllerImp extends SettingController{
   getData() async {
     data.clear();
     statusRequest = StatusRequest.loading;
+    update();
     var response =
     await myFavorite.myFavoriteData(services.preferences!.getString("id")!);
     //check for data, it is map || status request,
@@ -161,16 +161,6 @@ class SettingControllerImp extends SettingController{
     super.onInit();
   }
   
-  @override
-  goToProfile() {
-    Get.toNamed(AppRoutes.profile,arguments: {
-      "userid" :userid,
-      "userPic" :userPic,
-      "userEmail" :userEmail,
-      "userPhone" :userPhone,
-      "userName" :userName,
-    });
-  }
 
   @override
   goToCartPage() {
