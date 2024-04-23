@@ -1,5 +1,4 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:e_commerce_app/controller/user_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -14,7 +13,6 @@ class SettingsPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Get.put(SettingControllerImp());
-    UsersControllerImp userDetails = Get.put(UsersControllerImp());
     return Scaffold(
       body: GetBuilder<SettingControllerImp>(
         builder: (controller) => HandlingDataView(
@@ -40,9 +38,9 @@ class SettingsPage extends StatelessWidget {
                           borderRadius: BorderRadius.circular(50)),
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(50),
-                        child:userDetails.usersModel != null ?
+                        child:
                          CachedNetworkImage(
-                          imageUrl: "${userDetails.usersModel!.usersImage}",
+                          imageUrl: controller.userPic,
                           placeholder: (context, child) {
                             return const Center(
                               child: CircularProgressIndicator(),
@@ -53,7 +51,7 @@ class SettingsPage extends StatelessWidget {
                               child: Text("no image"),
                             );
                           },
-                        ):null,
+                        ),
                       ),
                     ),
                   ),

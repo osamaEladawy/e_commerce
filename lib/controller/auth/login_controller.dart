@@ -66,6 +66,7 @@ class LoginControllerImp extends LoginController{
           services.preferences!.setString("username",  response["data"]["users_name"]);
           services.preferences!.setString("email",  response["data"]["users_email"]);
           services.preferences!.setString("phone",  response["data"]["users_phone"]);
+          services.preferences!.setString("image",  response["data"]["users_image"]);
           services.preferences!.setBool("onboarding", true);
           FirebaseMessaging.instance.subscribeToTopic("users");
           FirebaseMessaging.instance.subscribeToTopic("users${userid}");
@@ -101,7 +102,9 @@ class LoginControllerImp extends LoginController{
 
     //   }
     //  });
+    print("token==================================");
      print(token);
+    print("token==================================");
    });
    email = TextEditingController();
    password = TextEditingController();

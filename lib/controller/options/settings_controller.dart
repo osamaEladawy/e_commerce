@@ -27,6 +27,9 @@ class SettingControllerImp extends SettingController{
   bool value = false;
   bool notification = false ;
   late String userid ;
+  late String userPic ;
+  late String userEmail ;
+  late String userPhone ;
 
   @override 
   logOut() {
@@ -69,16 +72,19 @@ class SettingControllerImp extends SettingController{
   changeNotification(bool val) {
   if(notification=val == true){
     FirebaseMessaging.instance.subscribeToTopic("users");
-    FirebaseMessaging.instance.subscribeToTopic("users${userid}");
+    FirebaseMessaging.instance.subscribeToTopic("users$userid");
   }else{
     FirebaseMessaging.instance.unsubscribeFromTopic("users");
-    FirebaseMessaging.instance.unsubscribeFromTopic("users${userid}");
+    FirebaseMessaging.instance.unsubscribeFromTopic("users$userid");
   }
   update();
   }
 @override
   void onInit() {
     userid =  services.preferences!.getString("id")!;
+    userPic =  services.preferences!.getString("image")!;
+    userEmail =  services.preferences!.getString("email")!;
+    userPhone =  services.preferences!.getString("phone")!;
     super.onInit();
   }
 

@@ -1,11 +1,8 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:e_commerce_app/core/class/status_request.dart';
 import 'package:e_commerce_app/core/functions/handleStatus_response.dart';
 import 'package:e_commerce_app/core/services/my_services.dart';
 import 'package:e_commerce_app/data/data_source/data_remote/users.data.dart';
 import 'package:e_commerce_app/data/model/users_model.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 
 abstract class UsersController extends GetxController {
