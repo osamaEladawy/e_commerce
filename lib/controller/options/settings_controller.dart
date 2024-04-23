@@ -32,7 +32,7 @@ class SettingControllerImp extends SettingController{
   logOut() {
     String userid =services.preferences!.getString("id")!;
     FirebaseMessaging.instance.unsubscribeFromTopic("users");
-    FirebaseMessaging.instance.unsubscribeFromTopic("users${userid}");
+    FirebaseMessaging.instance.unsubscribeFromTopic("users$userid");
     logOutGoogle();
     services.preferences!.clear();
     Get.offAllNamed(AppRoutes.login);

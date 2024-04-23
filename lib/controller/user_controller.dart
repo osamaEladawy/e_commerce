@@ -30,8 +30,9 @@ class UsersControllerImp extends UsersController {
 
   @override
   getSingleUser() async {
+   // users.clear();
     statusRequest = StatusRequest.loading;
-    update();
+   // update();
     var response = await usersData.getSingleUsers(
         userid: services.preferences!.get("id").toString());
     print("response controller....................................$response");
@@ -40,10 +41,10 @@ class UsersControllerImp extends UsersController {
       if (response["status"] == "success") {
         List data = response['data'];
         users.addAll(data.map((e) => UsersModel.fromJson(e)));
-        users.forEach((e) {
+        for (var e in users) {
           usersModel = e;
           userPic = e.usersImage!;
-        });
+        }
       } else {
         //3277115
         statusRequest = StatusRequest.failure;
@@ -52,27 +53,7 @@ class UsersControllerImp extends UsersController {
     update();
   }
 
-  Widget showImage() {
-    if (userPic != null || userPic!.isNotEmpty || userPic != "") {
-      return CachedNetworkImage(
-        imageUrl: userPic!,
-        placeholder: (context, child) {
-          return const Center(
-            child: CircularProgressIndicator(),
-          );
-        },
-        errorWidget: (context, text, child) {
-          return const Center(
-            child: Text("no "),
-          );
-        },
-      );
-    } else {
-      return const Center(
-        child: Text("no image"),
-      );
-    }
-  }
+  
 
   @override
   void onInit() {

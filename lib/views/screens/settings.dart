@@ -42,7 +42,7 @@ class SettingsPage extends StatelessWidget {
                         borderRadius: BorderRadius.circular(50),
                         child:userDetails.usersModel != null ?
                          CachedNetworkImage(
-                          imageUrl: "${userDetails.usersModel?.usersImage}",
+                          imageUrl: "${userDetails.usersModel!.usersImage}",
                           placeholder: (context, child) {
                             return const Center(
                               child: CircularProgressIndicator(),

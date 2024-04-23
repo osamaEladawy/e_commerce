@@ -33,16 +33,16 @@ class UsersModel {
   }
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['users_id'] = this.usersId;
-    data['users_name'] = this.usersName;
-    data['users_email'] = this.usersEmail;
-    data['users_password'] = this.usersPassword;
-    data['users_phone'] = this.usersPhone;
-    data['users_verfiy'] = this.usersVerfiy;
-    data['users_approve'] = this.usersApprove;
-    data['users_create'] = this.usersCreate;
-    data['users_image'] = this.usersImage;
+    final Map<String, dynamic> data = Map<String, dynamic>();
+    data['users_id'] = usersId;
+    data['users_name'] = usersName;
+    data['users_email'] = usersEmail;
+    data['users_password'] = usersPassword;
+    data['users_phone'] = usersPhone;
+    data['users_verfiy'] = usersVerfiy;
+    data['users_approve'] = usersApprove;
+    data['users_create'] = usersCreate;
+    data['users_image'] = usersImage;
     return data;
   }
 }
