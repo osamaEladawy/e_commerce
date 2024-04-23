@@ -200,34 +200,30 @@ class SettingsPage extends StatelessWidget {
                       ),
                       Positioned(
                         top: Get.width / 2.5,
-                        child: GestureDetector(
-                          onTap: () {
-                            controller.goToProfile();
-                          },
-                          child: Container(
-                            height: 100,
-                            width: 100,
-                            padding: const EdgeInsets.all(10),
-                            decoration: BoxDecoration(
-                                color: Colors.grey[200],
-                                borderRadius: BorderRadius.circular(50)),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(50),
-                              child: CachedNetworkImage(
-                                imageUrl: controller.userPic,
-                                placeholder: (context, child) {
-                                  return const Center(
-                                    child: CircularProgressIndicator(
-                                      color: Colors.orange,
-                                    ),
-                                  );
-                                },
-                                errorWidget: (context, text, child) {
-                                  return const Center(
-                                    child: Text("no image"),
-                                  );
-                                },
-                              ),
+                        child: Container(
+                          height: 100,
+                          width: 100,
+                          padding: const EdgeInsets.all(10),
+                          decoration: BoxDecoration(
+                              color: Colors.grey[200],
+                              borderRadius: BorderRadius.circular(50)),
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(50),
+                            child: CachedNetworkImage(
+                              imageUrl: controller.userPic,
+                              fit: BoxFit.cover,
+                              placeholder: (context, child) {
+                                return const Center(
+                                  child: CircularProgressIndicator(
+                                    color: Colors.orange,
+                                  ),
+                                );
+                              },
+                              errorWidget: (context, text, child) {
+                                return const Center(
+                                  child: Text("no image"),
+                                );
+                              },
                             ),
                           ),
                         ),
