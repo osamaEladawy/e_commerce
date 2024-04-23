@@ -13,10 +13,10 @@ class CartPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    CratControllerImp controllerImp = Get.put(CratControllerImp());
+    CartControllerImp controllerImp = Get.put(CartControllerImp());
     return Scaffold(
       appBar: AppBar(
-        title:const Text("MyCart"),
+        title: const Text("MyCart"),
         leading: IconButton(
           onPressed: () {
             controllerImp.back();
@@ -26,13 +26,13 @@ class CartPage extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: GetBuilder<CratControllerImp>(
-        builder: (controller1) => CustomNavigationBarCart(              
+      bottomNavigationBar: GetBuilder<CartControllerImp>(
+        builder: (controller1) => CustomNavigationBarCart(
           apply: () {
-            controller1.copon();
+            controller1.coupon();
           },
-          discount: "${controller1.copondiscount}",
-          coponController: controller1.nameCopon,
+          discount: "${controller1.couponDiscount}",
+          coponController: controller1.nameCoupon,
           formatKey: controller1.formState,
           onPressed: () {
             controller1.goToCheckOut();
@@ -42,7 +42,7 @@ class CartPage extends StatelessWidget {
           totalPrice: "${controller1.getTotalPrice()}",
         ),
       ),
-      body: GetBuilder<CratControllerImp>(
+      body: GetBuilder<CartControllerImp>(
         builder: (controller) => HandlingDataView(
           statusRequest: controller.statusRequest,
           widget: ListView(
@@ -54,23 +54,23 @@ class CartPage extends StatelessWidget {
                 message: "You have a ${controller.responseCount} From products",
               ),
               ...List.generate(
-                controller.datacart.length,
+                controller.dataCart.length,
                 (index) => CustomCardCart(
                   onAdd: () async {
                     await controller
-                        .addCart(controller.datacart[index].itemsId!);
+                        .addCart(controller.dataCart[index].itemsId!);
                     controller.refreshData();
                   },
                   onRemove: () async {
                     await controller
-                        .removeCart(controller.datacart[index].itemsId!);
+                        .removeCart(controller.dataCart[index].itemsId!);
                     controller.refreshData();
                   },
-                  count: '${controller.datacart[index].itemscount}',
-                  price: '${controller.datacart[index].itemsPriceDiscount}',
+                  count: '${controller.dataCart[index].itemscount}',
+                  price: '${controller.dataCart[index].itemsPriceDiscount}',
                   name:
-                      '${translateDatabase(controller.datacart[index].itemsNameAr, controller.datacart[index].itemsName)}',
-                  url: '${controller.datacart[index].itemsImages}',
+                      '${translateDatabase(controller.dataCart[index].itemsNameAr, controller.dataCart[index].itemsName)}',
+                  url: '${controller.dataCart[index].itemsImages}',
                 ),
               ),
             ],

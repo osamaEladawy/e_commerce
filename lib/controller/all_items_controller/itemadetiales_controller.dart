@@ -8,26 +8,26 @@ import '../../core/functions/handleStatus_response.dart';
 import '../../core/services/my_services.dart';
 import '../../data/data_source/data_remote/cart_data.dart';
 
-abstract class ItemsDetialescontroller extends GetxController {
+abstract class ItemsDetailsController extends GetxController {
   add();
   remove();
-  addCart(int itemid);
-  removeCart(int itemid);
-  getcountitems(int itemid);
+  addCart(int itemId);
+  removeCart(int itemId);
+  getCountItems(int itemId);
   
   changeColors(int index);
  
   goToCart();
 }
 
-class ItemsDetialescontrollerImp extends ItemsDetialescontroller {
+class ItemsDetailsControllerImp extends ItemsDetailsController {
   late ItemsModel itemsModel;
   StatusRequest statusRequest = StatusRequest.none;
   CartData cartData = CartData(curd: Get.find());
   MyServices services  = Get.find();
   int indexColor =  0 ;
   int count = 0;
-  bool iscolor = false;
+  bool isColor = false;
   String colors = '';
 
   
@@ -45,7 +45,7 @@ class ItemsDetialescontrollerImp extends ItemsDetialescontroller {
   initialData() async{
     statusRequest = StatusRequest.loading;
     itemsModel = Get.arguments['productdetails'];
-    count = await getcountitems(itemsModel.itemsId!);
+    count = await getCountItems(itemsModel.itemsId!);
     statusRequest = StatusRequest.success;
     update();
   }
@@ -109,11 +109,11 @@ class ItemsDetialescontrollerImp extends ItemsDetialescontroller {
   }
 
   @override
-  getcountitems(itemid) async {
+  getCountItems(itemId) async {
     statusRequest= StatusRequest.loading;
     update();
     var response = await cartData.getCountItemsFromCart(
-        services.preferences!.getString("id")!, itemid);
+        services.preferences!.getString("id")!, itemId);
     statusRequest = handleStatus(response);
     if(StatusRequest.success == statusRequest){
       if(response['status']=="success"){

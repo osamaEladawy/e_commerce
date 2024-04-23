@@ -91,7 +91,7 @@ class ItemsListModel extends GetView<ItemsControllerImp> {
         itemBuilder: (context, index) {
           return InkWell(
             onTap: (){
-              controller.gotoProductDetiales(listOfModels[index]);
+              controller.gotoProductDetails(listOfModels[index]);
             },
             child: Card(
               child: Row(

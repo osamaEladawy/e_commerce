@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import '../../../controller/all_items_controller/itemadetiales_controller.dart';
 
 
-class CustomCardColors extends GetView<ItemsDetialescontrollerImp> {
+class CustomCardColors extends GetView<ItemsDetailsControllerImp> {
    const CustomCardColors({super.key});
 
   @override
@@ -19,7 +19,7 @@ class CustomCardColors extends GetView<ItemsDetialescontrollerImp> {
           ),
         ),
         const SizedBox(height: 15,),
-        GetBuilder<ItemsDetialescontrollerImp>(
+        GetBuilder<ItemsDetailsControllerImp>(
           builder:(controller)=> Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [

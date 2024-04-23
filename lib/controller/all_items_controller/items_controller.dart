@@ -10,8 +10,8 @@ import '../../data/model/items_model.dart';
 
 abstract class ItemsController extends GetxController{
 changeCat(int index , int value);
-getItems(int categoryid);
-gotoProductDetiales(ItemsModel productDetails);
+getItems(int categoryId);
+gotoProductDetails(ItemsModel productDetails);
 goToFavourite();
 goToNotification();
 checkSearch(String value);
@@ -30,7 +30,7 @@ class ItemsControllerImp extends ItemsController{
   GlobalKey<FormState>formState = GlobalKey<FormState>();
 
   int? selected;
-  late int categoryid ;
+  late int categoryId ;
   ItemsData itemsData   = ItemsData(curd:Get.find());
   MyServices services = Get.find();
   StatusRequest statusRequest  = StatusRequest.none;
@@ -49,9 +49,9 @@ class ItemsControllerImp extends ItemsController{
   initialData(){
     categories = Get.arguments['categories'];
     selected = Get.arguments['selectedcat'] ;
-    categoryid = Get.arguments['categoryid'];
+    categoryId = Get.arguments['categoryid'];
     searchController = TextEditingController();
-    getItems(categoryid);
+    getItems(categoryId);
   }
 
 
@@ -68,10 +68,10 @@ class ItemsControllerImp extends ItemsController{
 
 
   @override
-  getItems(categoryid)async{
+  getItems(categoryId)async{
     data.clear();
     statusRequest = StatusRequest.loading;
-    var response = await itemsData.getData(categoryid,services.preferences!.getString("id"));
+    var response = await itemsData.getData(categoryId,services.preferences!.getString("id"));
     statusRequest = handleStatus(response);
     if(StatusRequest.success == statusRequest){
       if(response["status"] == "success"){
@@ -110,7 +110,7 @@ class ItemsControllerImp extends ItemsController{
 
 
   @override
-  gotoProductDetiales(productDetails) {
+  gotoProductDetails(productDetails) {
     Get.toNamed(AppRoutes.productDetiales,arguments: {
       "productdetails" : productDetails,
     });

@@ -10,51 +10,51 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 abstract class CartController extends GetxController{
-  addCart(int itemid);
-  removeCart(int itemid);
-  getcountitems(int itemid);
+  addCart(int itemId);
+  removeCart(int itemId);
+  getCountItems(int itemId);
   viewCart();
-  copon();
+  coupon();
   back();
   getTotalPrice();
   goToCheckOut();
 }
 
-class CratControllerImp extends CartController{
+class CartControllerImp extends CartController{
   CartData cartData = CartData(curd: Get.find());
   MyServices services  = Get.find();
   StatusRequest statusRequest = StatusRequest.none;
 
-  List<CartModel>datacart = [];
+  List<CartModel>dataCart = [];
   late CartModel cartModel;
-  List<CoponModel> copons=[];
+  List<CoponModel> coupons=[];
 
   int responseCount = 0;
   double responsePrice = 0.0 ;
 
-  late TextEditingController nameCopon;
+  late TextEditingController nameCoupon;
   GlobalKey<FormState>formState = GlobalKey<FormState>();
-   CoponModel? coponModel;
-  int? copondiscount = 0 ;
-  String? coponNamed ;
-  int? coponId;
+   CoponModel? couponModel;
+  int? couponDiscount = 0 ;
+  String? couponNamed ;
+  int? couponId;
   bool? whenWritten;
-  String? expairedate ;
+  String? expirationDate ;
   String? itemDate  ;
-  int? itemid ;
+  int? itemId ;
 
 
 
   @override
-  addCart(itemid) async{
+  addCart(itemId) async{
     statusRequest= StatusRequest.loading;
     var response = await cartData.add(
-    services.preferences!.getString("id")!, itemid);
+    services.preferences!.getString("id")!, itemId);
     statusRequest = handleStatus(response);
     if(StatusRequest.success == statusRequest){
       if(response["status"] == "success"){
         Get.rawSnackbar(
-          title: "Haaaay",
+          title: "Haye",
           message: "your product added to Cart List",
           backgroundColor: Colors.green,
           borderRadius: 25,
@@ -72,15 +72,15 @@ class CratControllerImp extends CartController{
   }
 
   @override
-  removeCart(itemid) async{
+  removeCart(itemId) async{
     statusRequest= StatusRequest.loading;
     var response = await cartData.remove(
-     services.preferences!.getString("id")!, itemid);
+     services.preferences!.getString("id")!, itemId);
     statusRequest = handleStatus(response);
     if(StatusRequest.success == statusRequest){
       if(response['status']=="success"){
         Get.rawSnackbar(
-          title: "Haaaay",
+          title: "Haye",
           message: "your product removed from Cart List",
           backgroundColor: Colors.red,
           borderRadius: 25,
@@ -97,7 +97,7 @@ class CratControllerImp extends CartController{
   resetData(){
     responseCount = 0;
     responsePrice = 0.0 ;
-   datacart.clear();
+   dataCart.clear();
   }
 
   refreshData(){
@@ -118,17 +118,17 @@ class CratControllerImp extends CartController{
         if(response['status']=="success"){
           //if(response["datacart"]["status"] == "success"){
           List responseData = response["datacart"];
-          datacart.addAll(responseData.map((e) => CartModel.fromJson(e)));
-          Map countandprice =  response["countandprice"] ;
-          responseCount = int.parse(countandprice["totalcount"].toString());
-          responsePrice = double.parse(countandprice["totalprice"].toString());
-          expairedate = countandprice["expairedate"].toString();
+          dataCart.addAll(responseData.map((e) => CartModel.fromJson(e)));
+          Map countAndPrice =  response["countandprice"] ;
+          responseCount = int.parse(countAndPrice["totalcount"].toString());
+          responsePrice = double.parse(countAndPrice["totalprice"].toString());
+          expirationDate = countAndPrice["expairedate"].toString();
           print("==================================================");
           print("==================================================");
-          print("datacart===============================$datacart");
+          print("datacart===============================$dataCart");
           print("==================================================");
           print("==================================================");
-          print("countandprice====================$countandprice");
+          print("countandprice====================$countAndPrice");
           print("==================================================");
           print("==================================================");
           //}
@@ -143,10 +143,10 @@ class CratControllerImp extends CartController{
   }
 
   @override
-  getcountitems(itemid) async {
+  getCountItems(itemId) async {
     statusRequest= StatusRequest.loading;
     var response = await cartData.getCountItemsFromCart(
-        services.preferences!.getString("id")!, itemid);
+        services.preferences!.getString("id")!, itemId);
     statusRequest = handleStatus(response);
     if(StatusRequest.success == statusRequest){
       if(response['status']=="success"){
@@ -166,7 +166,7 @@ class CratControllerImp extends CartController{
 
   @override
   void onInit() {
-    nameCopon = TextEditingController();
+    nameCoupon = TextEditingController();
     // itemPrice = Get.arguments['itemprice'];
     viewCart();
     super.onInit();
@@ -174,7 +174,7 @@ class CratControllerImp extends CartController{
 
   @override
   void dispose() {
-   nameCopon.dispose();
+    nameCoupon.dispose();
     super.dispose();
   }
 
@@ -184,28 +184,28 @@ class CratControllerImp extends CartController{
   }
 
   @override
-  copon() async {
+  coupon() async {
     if(formState.currentState!.validate()){
       whenWritten = false;
       statusRequest= StatusRequest.loading;
       update();
-      var response = await cartData.copon(nameCopon.text);
+      var response = await cartData.copon(nameCoupon.text);
       print("==================================================$response");
       statusRequest = handleStatus(response);
       if(StatusRequest.success == statusRequest){
         if(response['status']=="success"){
           Map<String,dynamic> responseData = response["data"];
-          coponModel = CoponModel.fromJson(responseData);
-          copondiscount = coponModel!.coponDiscount ;
-          coponNamed =coponModel!.coponName;
-          coponId = coponModel!.coponId;
-          expairedate = coponModel!.coponExpairdate!;
+          couponModel = CoponModel.fromJson(responseData);
+          couponDiscount = couponModel!.coponDiscount ;
+          couponNamed =couponModel!.coponName;
+          couponId = couponModel!.coponId;
+          expirationDate = couponModel!.coponExpairdate!;
         }else{
-          copondiscount = 0 ;
-          coponNamed = null;
-          coponId = null;
+          couponDiscount = 0 ;
+          couponNamed = null;
+          couponId = null;
           Get.rawSnackbar(
-            title: "Haaaay",
+            title: "Haye",
             message: "No discount was found for this name",
             backgroundColor: Colors.red,
             borderRadius: 25,
@@ -223,17 +223,17 @@ class CratControllerImp extends CartController{
 
   @override
   getTotalPrice(){
-    return responsePrice - responsePrice * copondiscount! / 100 ;
+    return responsePrice - responsePrice * couponDiscount! / 100 ;
   }
 
   @override
   goToCheckOut() {
-    if(datacart.isEmpty) return Get.snackbar("Haye!", "the basket is empty!");
+    if(dataCart.isEmpty) return Get.snackbar("Haye!", "the basket is empty!");
     Get.toNamed(AppRoutes.checkout,arguments: {
-      "coponid":coponId ?? 0,
+      "coponid":couponId ?? 0,
       "orderprice":responsePrice,
-      "copondiscount" : copondiscount,
-      "listofproducts" :datacart,
+      "copondiscount" : couponDiscount,
+      "listofproducts" :dataCart,
       //"itemprice" : itemPrice,
     });
   }

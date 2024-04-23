@@ -17,7 +17,7 @@ class ItemsGridView extends GetView<ItemsControllerImp> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        controller.gotoProductDetiales(itemsModel);
+        controller.gotoProductDetails(itemsModel);
       },
       child: Card(
         child: Padding(

@@ -36,6 +36,7 @@ class AppRoutes{
   static const String offers = "/offers";
 
 static const String notification = "/notification";
+static const String profile = "/profile";
 
 
 }

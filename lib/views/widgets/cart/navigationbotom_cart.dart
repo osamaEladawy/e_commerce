@@ -11,29 +11,27 @@ TextStyle style = const TextStyle(
   color: Colors.black,
 );
 
-
-class CustomNavigationBarCart extends GetView<CratControllerImp> {
+class CustomNavigationBarCart extends GetView<CartControllerImp> {
   final String price;
   final String discount;
   final String shaping;
-  final String totalPrice; 
+  final String totalPrice;
   final void Function()? onPressed;
   final void Function()? apply;
   final Key? formatKey;
   final TextEditingController? coponController;
 
-  const CustomNavigationBarCart(
-      {super.key,
-      required this.price,
-      required this.discount,
-      required this.shaping,
-      required this.totalPrice, 
-      required this.onPressed,
-      required this.formatKey,
-      required this.coponController,
-      required this.apply,
-
-      });
+  const CustomNavigationBarCart({
+    super.key,
+    required this.price,
+    required this.discount,
+    required this.shaping,
+    required this.totalPrice,
+    required this.onPressed,
+    required this.formatKey,
+    required this.coponController,
+    required this.apply,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -42,69 +40,68 @@ class CustomNavigationBarCart extends GetView<CratControllerImp> {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          GetBuilder<CratControllerImp>(
-            builder: (controller) => (controller.coponNamed == null)
+          GetBuilder<CartControllerImp>(
+            builder: (controller) => (controller.couponNamed == null)
                 ? Row(
-                  children: [
-                    Expanded(
-                      flex: 2,
-                      child: SizedBox(
-                        height:controller.whenWritten == true? 67 :40,
-                        child: Form(
-                          key: formatKey,
-                          child: TextFormField(
-                            validator: (value) {
-                              if (value!.isEmpty) {
-                                return "this field must not be empty";
-                              }
-                              
-                            },
-                            controller: coponController,
-                            decoration: InputDecoration(
-                              hintText: "Enter your copon",
-                              border: InputBorder.none,
-                              enabledBorder: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(10),
+                    children: [
+                      Expanded(
+                        flex: 2,
+                        child: SizedBox(
+                          height: controller.whenWritten == true ? 67 : 40,
+                          child: Form(
+                            key: formatKey,
+                            child: TextFormField(
+                              validator: (value) {
+                                if (value!.isEmpty) {
+                                  return "this field must not be empty";
+                                }
+                              },
+                              controller: coponController,
+                              decoration: InputDecoration(
+                                hintText: "Enter your copon",
+                                border: InputBorder.none,
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(10),
+                                ),
+                                filled: true,
+                                fillColor: Colors.grey[300],
                               ),
-                              filled: true,
-                              fillColor: Colors.grey[300],
                             ),
                           ),
                         ),
                       ),
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: MaterialButton(
-                        height: 37,
-                        shape: const OutlineInputBorder(
-                          borderSide:
-                              BorderSide(color: AppColors.primaryColor),
-                        ),
-                        color: AppColors.primaryColor,
-                        onPressed: apply,
-                        child: Text(
-                          "Apply",
-                          style: Style.textStyle,
+                      const SizedBox(
+                        width: 10,
+                      ),
+                      Expanded(
+                        flex: 1,
+                        child: MaterialButton(
+                          height: 37,
+                          shape: const OutlineInputBorder(
+                            borderSide:
+                                BorderSide(color: AppColors.primaryColor),
+                          ),
+                          color: AppColors.primaryColor,
+                          onPressed: apply,
+                          child: Text(
+                            "Apply",
+                            style: Style.textStyle,
+                          ),
                         ),
                       ),
-                    ),
-                  ],
-                )
+                    ],
+                  )
                 : SizedBox(
-                  height: 25,
-                  child: Text(
-                    "Copon Code ${controller.coponModel!.coponName}",
-                    style: const TextStyle(
-                      fontSize: 17,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.red,
+                    height: 25,
+                    child: Text(
+                      "Copon Code ${controller.couponModel!.coponName}",
+                      style: const TextStyle(
+                        fontSize: 17,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.red,
+                      ),
                     ),
                   ),
-                ),
           ),
           const SizedBox(
             height: 10,
@@ -116,7 +113,6 @@ class CustomNavigationBarCart extends GetView<CratControllerImp> {
             ),
             child: Column(
               children: [
-                
                 const SizedBox(
                   height: 20,
                 ),
@@ -159,16 +155,18 @@ class CustomNavigationBarCart extends GetView<CratControllerImp> {
                 const SizedBox(
                   height: 10,
                 ),
-
-                  Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     Text(
-                      "expair Date your copon",
+                      "expiration Date your coupon",
                       style: style,
-                    ),                  
-                if (controller.expairedate !=null && controller.coponModel != null &&  controller.coponId == controller.coponModel!.coponId) 
-                Text(Jiffy.parse('${controller.expairedate}').fromNow()),
+                    ),
+                    if (controller.expirationDate != null &&
+                        controller.couponModel != null &&
+                        controller.couponId == controller.couponModel!.coponId)
+                      Text(Jiffy.parse('${controller.expirationDate}')
+                          .fromNow()),
                   ],
                 ),
                 const SizedBox(
@@ -210,7 +208,7 @@ class CustomNavigationBarCart extends GetView<CratControllerImp> {
             child: MaterialButton(
               height: 40,
               shape: const StadiumBorder(),
-              color:AppColors.primaryColor,
+              color: AppColors.primaryColor,
               onPressed: onPressed,
               child: Text(
                 "Order",

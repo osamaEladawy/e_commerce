@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import '../../../controller/all_items_controller/itemadetiales_controller.dart';
 import '../../../core/constant/assetsImages.dart';
 
-class CustomTop extends GetView<ItemsDetialescontrollerImp> {
+class CustomTop extends GetView<ItemsDetailsControllerImp> {
   const CustomTop({super.key});
 
   @override

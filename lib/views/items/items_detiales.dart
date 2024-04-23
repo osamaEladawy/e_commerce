@@ -27,7 +27,7 @@ class ItemsDetails extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    ItemsDetialescontrollerImp controller = Get.put(ItemsDetialescontrollerImp());
+    ItemsDetailsControllerImp controller = Get.put(ItemsDetailsControllerImp());
     return Scaffold(
       bottomNavigationBar:  CustomBottomBar(
         title: "Go to Cart",
@@ -35,7 +35,7 @@ class ItemsDetails extends StatelessWidget {
         controller.goToCart();
         },),
       body: SafeArea(
-        child: GetBuilder<ItemsDetialescontrollerImp>(
+        child: GetBuilder<ItemsDetailsControllerImp>(
           builder: (controller) => HandlingDataView(
             statusRequest: controller.statusRequest,
             widget: ListView(

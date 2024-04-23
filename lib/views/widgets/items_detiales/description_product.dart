@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import '../../../controller/all_items_controller/itemadetiales_controller.dart';
 import '../../../core/functions/translate_database.dart';
 
-class CustomDescriptionProduct extends GetView<ItemsDetialescontrollerImp> {
+class CustomDescriptionProduct extends GetView<ItemsDetailsControllerImp> {
   const CustomDescriptionProduct({super.key});
 
   @override
