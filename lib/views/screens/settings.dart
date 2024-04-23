@@ -75,16 +75,22 @@ class SettingsPage extends StatelessWidget {
                   title: const Text("My Favorite"),
                   subtitle: const Text("This is List of yor favourite Items"),
                   trailing: Badge(
+                    largeSize: 20,
                     backgroundColor: Colors.black,
-                    label: Text(controller.itemsCountInFav.toString()),
+                    label: Text(
+                      controller.itemsCountInFav.toString(),
+                      style: const TextStyle(
+                          fontSize: 16, fontWeight: FontWeight.bold),
+                    ),
                     child: IconButton(
-                        onPressed: () {
-                          controller.goToFavouritePage();
-                        },
-                        icon: Icon(Icons.favorite,
-                            color: controller.itemsCountInFav == 0
-                                ? Colors.grey
-                                : Colors.red)),
+                      onPressed: () {
+                        controller.goToFavouritePage();
+                      },
+                      icon: Icon(Icons.favorite,
+                          color: controller.itemsCountInFav == 0
+                              ? Colors.grey
+                              : Colors.red),
+                    ),
                   ),
                 ),
                 SizedBox(
@@ -126,8 +132,11 @@ class SettingsPage extends StatelessWidget {
                   title: const Text("My Cart"),
                   subtitle: const Text("This Items in your cart"),
                   trailing: Badge(
+                    largeSize: 20,
                     backgroundColor: Colors.black,
-                    label: Text(controller.itemsCountInCart.toString()),
+                    label: Text(controller.itemsCountInCart.toString(),
+                        style: const TextStyle(
+                            fontWeight: FontWeight.bold, fontSize: 16)),
                     child: IconButton(
                       onPressed: () {
                         controller.goToCartPage();
@@ -178,121 +187,121 @@ class SettingsPage extends StatelessWidget {
             ),
           ),
           body: ListView(
+            children: [
+              Stack(
+                clipBehavior: Clip.none,
+                alignment: Alignment.center,
                 children: [
-                  Stack(
-                    clipBehavior: Clip.none,
-                    alignment: Alignment.center,
-                    children: [
-                      Container(
-                        height: Get.width / 2,
-                        color: Colors.orange,
-                      ),
-                      Positioned(
-                        top: Get.width / 2.5,
-                        child: GestureDetector(
-                          onTap: (){
-                            controller.goToProfile();
-                          },
-                          child: Container(
-                            height: 100,
-                            width: 100,
-                            padding: const EdgeInsets.all(10),
-                            decoration: BoxDecoration(
-                                color: Colors.grey[200],
-                                borderRadius: BorderRadius.circular(50)),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(50),
-                              child:
-                               CachedNetworkImage(
-                                imageUrl: controller.userPic,
-                                placeholder: (context, child) {
-                                  return const Center(
-                                    child: CircularProgressIndicator(color: Colors.orange,),
-                                  );
-                                },
-                                errorWidget: (context, text, child) {
-                                  return const Center(
-                                    child: Text("no image"),
-                                  );
-                                },
-                              ),
-                            ),
+                  Container(
+                    height: Get.width / 2,
+                    color: Colors.orange,
+                  ),
+                  Positioned(
+                    top: Get.width / 2.5,
+                    child: GestureDetector(
+                      onTap: () {
+                        controller.goToProfile();
+                      },
+                      child: Container(
+                        height: 100,
+                        width: 100,
+                        padding: const EdgeInsets.all(10),
+                        decoration: BoxDecoration(
+                            color: Colors.grey[200],
+                            borderRadius: BorderRadius.circular(50)),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(50),
+                          child: CachedNetworkImage(
+                            imageUrl: controller.userPic,
+                            placeholder: (context, child) {
+                              return const Center(
+                                child: CircularProgressIndicator(
+                                  color: Colors.orange,
+                                ),
+                              );
+                            },
+                            errorWidget: (context, text, child) {
+                              return const Center(
+                                child: Text("no image"),
+                              );
+                            },
                           ),
                         ),
                       ),
-                    ],
-                  ),
-                  const SizedBox(
-                    height: 60,
-                  ),
-                  Card(
-                    elevation: 0.3,
-                    child: Column(
-                      children: [
-                        controller.value == false
-                            ? ListTile(
-                                onTap: () {
-                                  controller.goToPending();
-                                },
-                                title: const Text("Pending Orders"),
-                                trailing: Switch(
-                                  activeColor: AppColors.primaryColor,
-                                  inactiveThumbColor: Colors.red,
-                                  onChanged: (val) {
-                                    controller.changeSwitch(val);
-                                  },
-                                  value: controller.value,
-                                ),
-                              )
-                            : ListTile(
-                                onTap: () {
-                                  controller.goToArchive();
-                                },
-                                title: const Text("Archive Orders"),
-                                trailing: Switch(
-                                  activeColor: AppColors.primaryColor,
-                                  inactiveThumbColor: Colors.red,
-                                  onChanged: (val) {
-                                    controller.changeSwitch(val);
-                                  },
-                                  value: controller.value,
-                                ),
-                              ),
-                        ListTile(
-                          onTap: () {
-                            controller.goToAddress();
-                          },
-                          title: const Text("Location"),
-                          trailing: const Icon(
-                            Icons.location_on,
-                            color: Colors.red,
-                          ),
-                        ),
-                        const ListTile(
-                          title: Text("about"),
-                          trailing:
-                              Icon(Icons.question_mark, color: Colors.red),
-                        ),
-                        ListTile(
-                          onTap: () async {
-                            await launchUrl(Uri.parse("tel: +02 123655"));
-                          },
-                          title: const Text("connect us"),
-                          trailing: const Icon(Icons.phone_callback_outlined,
-                              color: Colors.red),
-                        ),
-                        ListTile(
-                          onTap: () {
-                            controller.logOut();
-                          },
-                          title: const Text("log Out"),
-                          trailing: const Icon(Icons.logout, color: Colors.red),
-                        ),
-                      ],
                     ),
                   ),
                 ],
               ),
+              const SizedBox(
+                height: 60,
+              ),
+              Card(
+                elevation: 0.3,
+                child: Column(
+                  children: [
+                    controller.value == false
+                        ? ListTile(
+                            onTap: () {
+                              controller.goToPending();
+                            },
+                            title: const Text("Pending Orders"),
+                            trailing: Switch(
+                              activeColor: AppColors.primaryColor,
+                              inactiveThumbColor: Colors.red,
+                              onChanged: (val) {
+                                controller.changeSwitch(val);
+                              },
+                              value: controller.value,
+                            ),
+                          )
+                        : ListTile(
+                            onTap: () {
+                              controller.goToArchive();
+                            },
+                            title: const Text("Archive Orders"),
+                            trailing: Switch(
+                              activeColor: AppColors.primaryColor,
+                              inactiveThumbColor: Colors.red,
+                              onChanged: (val) {
+                                controller.changeSwitch(val);
+                              },
+                              value: controller.value,
+                            ),
+                          ),
+                    ListTile(
+                      onTap: () {
+                        controller.goToAddress();
+                      },
+                      title: const Text("Location"),
+                      trailing: const Icon(
+                        Icons.location_on,
+                        color: Colors.red,
+                      ),
+                    ),
+                    const ListTile(
+                      title: Text("about"),
+                      trailing: Icon(Icons.question_mark, color: Colors.red),
+                    ),
+                    ListTile(
+                      onTap: () async {
+                        await launchUrl(Uri.parse("tel: +02 123655"));
+                      },
+                      title: const Text("connect us"),
+                      trailing: const Icon(Icons.phone_callback_outlined,
+                          color: Colors.red),
+                    ),
+                    ListTile(
+                      onTap: () {
+                        controller.logOut();
+                      },
+                      title: const Text("log Out"),
+                      trailing: const Icon(Icons.logout, color: Colors.red),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
