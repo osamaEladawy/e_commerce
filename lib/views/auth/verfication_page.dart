@@ -20,7 +20,7 @@ class Verification extends StatelessWidget {
         elevation: 0,
         title: Text(
           "39".tr,
-          style: Theme.of(context).textTheme.bodyText1,
+          style: Theme.of(context).textTheme.bodyMedium
         ),
       ),
       body: SafeArea(

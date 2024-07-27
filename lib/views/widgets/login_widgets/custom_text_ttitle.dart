@@ -8,7 +8,7 @@ class CustomTextTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return Text(text,
       textAlign: TextAlign.center,
-      style: Theme.of(context).textTheme.headline1!.copyWith(
+      style: Theme.of(context).textTheme.headlineMedium!.copyWith(
         fontSize: 22,
       ),
     );

@@ -6,7 +6,7 @@ class CustomTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TextStyle style = Theme.of(context).textTheme.headline1!.copyWith(
+    TextStyle style = Theme.of(context).textTheme.headlineMedium!.copyWith(
       color: Colors.red,
       fontSize: 18,
     );

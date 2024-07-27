@@ -9,7 +9,6 @@ import '../../core/functions/translate_database.dart';
 import '../../data/model/items_model.dart';
 import '../widgets/home_screen/custom_card.dart';
 import '../widgets/home_screen/custom_items_list.dart';
-import '../widgets/home_screen/custom_ttextfield_screenhome.dart';
 import '../widgets/home_screen/customoffershome.dart';
 import '../widgets/home_screen/listview_categories.dart';
 
@@ -110,7 +109,7 @@ class HomePage extends StatelessWidget {
                               "Categories",
                               style: Theme.of(context)
                                   .textTheme
-                                  .headline1!
+                                  .headlineMedium!
                                   .copyWith(
                                     color: Colors.red,
                                   ),
@@ -126,7 +125,7 @@ class HomePage extends StatelessWidget {
                               "Top Sales",
                               style: Theme.of(context)
                                   .textTheme
-                                  .headline1!
+                                  .headlineMedium!
                                   .copyWith(
                                     color: Colors.red,
                                   ),
@@ -139,7 +138,7 @@ class HomePage extends StatelessWidget {
                               "Offers",
                               style: Theme.of(context)
                                   .textTheme
-                                  .headline1!
+                                  .headlineMedium!
                                   .copyWith(
                                     color: Colors.red,
                                   ),

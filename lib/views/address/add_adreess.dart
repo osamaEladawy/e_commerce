@@ -49,7 +49,7 @@ class AddAdress extends StatelessWidget {
                             "Complete entering\n your information",
                             style: Theme.of(context)
                                 .textTheme
-                                .headline1!
+                                .headlineMedium!
                                 .copyWith(fontSize: 20),
                           ),
                         ),

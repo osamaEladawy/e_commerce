@@ -18,7 +18,7 @@ class CustomLanguagePage extends StatelessWidget {
           ),
           color: Colors.orange,
           onPressed: onPressed,
-          child: Text(textInPut,style:Theme.of(context).textTheme.headline1,
+          child: Text(textInPut,style:Theme.of(context).textTheme.headlineMedium,
           ),
       ),
     );

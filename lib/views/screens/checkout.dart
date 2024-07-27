@@ -22,7 +22,7 @@ class CheckOut extends StatelessWidget {
           },
           color: Colors.red,
           child: Text("Check out",
-              style: Theme.of(context).textTheme.headline1!.copyWith(
+              style: Theme.of(context).textTheme.headlineMedium!.copyWith(
                     color: Colors.white,
                   )),
         ),

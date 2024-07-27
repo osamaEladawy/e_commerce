@@ -36,7 +36,7 @@ class SignUp extends StatelessWidget {
           margin: const EdgeInsets.only(top: 25),
           child: Text(
             "25".tr,
-            style: Theme.of(context).textTheme.headline1,
+            style: Theme.of(context).textTheme.headlineMedium,
           ),
         ),
       ),
@@ -92,7 +92,7 @@ class SignUp extends StatelessWidget {
                       "Select Image",
                       style: Theme.of(context)
                           .textTheme
-                          .bodyText1!
+                          .bodyMedium!
                           .copyWith(color: Colors.grey[500]),
                     ),
                     const SizedBox(

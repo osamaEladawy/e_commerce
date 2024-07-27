@@ -15,7 +15,7 @@ class LanguagesPage extends GetView<LocalLanguagesController> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text("1".tr,style: Theme.of(context).textTheme.headline1,),
+              Text("1".tr,style: Theme.of(context).textTheme.headlineMedium,),
               const SizedBox(height: 10,),
               CustomLanguagePage(
                 onPressed: (){

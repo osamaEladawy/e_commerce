@@ -59,7 +59,7 @@ class Categories extends GetView<HomePageControllerImp> {
           ),
           Text(
             "${translateDatabase(categoriesModel.categoriesNameAr, categoriesModel.categoriesName)}",
-            style: Theme.of(context).textTheme.bodyText1,
+            style: Theme.of(context).textTheme.bodyMedium,
           ),
         ],
       ),

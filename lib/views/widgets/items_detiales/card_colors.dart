@@ -15,7 +15,7 @@ class CustomCardColors extends GetView<ItemsDetailsControllerImp> {
           alignment: Alignment.topLeft,
           child: Text(
             "  Color",
-            style: Theme.of(context).textTheme.headline1,
+            style: Theme.of(context).textTheme.headlineMedium,
           ),
         ),
         const SizedBox(height: 15,),

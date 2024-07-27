@@ -10,7 +10,7 @@ class CustomTextbody extends StatelessWidget {
       textAlign: TextAlign.center,
       style: Theme.of(context)
           .textTheme
-          .bodyText1!
+          .bodyMedium!
           .copyWith(color: Colors.grey[500]),
     );
   }

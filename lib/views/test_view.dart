@@ -16,7 +16,7 @@ class TestView extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: Column(
             children: [
-              Text("Show Data",style: Theme.of(context).textTheme.headline1,),
+              Text("Show Data",style: Theme.of(context).textTheme.headlineLarge,),
               const SizedBox(height: 15,),
               GetBuilder<TextController>(builder: (controller){
                 return HandlingDataView(

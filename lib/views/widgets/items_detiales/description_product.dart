@@ -16,7 +16,7 @@ class CustomDescriptionProduct extends GetView<ItemsDetailsControllerImp> {
          Text(
             "${translateDatabase(controller.itemsModel.itemsDescAr,
                 controller.itemsModel.itemsDesc)}",
-            style: Theme.of(context).textTheme.bodyText1!.copyWith(
+            style: Theme.of(context).textTheme.bodyMedium!.copyWith(
               fontSize: 14,
               color: Colors.grey[500],
             ),

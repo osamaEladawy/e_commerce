@@ -30,11 +30,11 @@ class CustomCard extends GetView<HomePageControllerImp> {
               children: [
                 Text(
                   text1,
-                  style: Theme.of(context).textTheme.headline1,
+                  style: Theme.of(context).textTheme.headlineMedium,
                 ),
                 Text(
                   text2,
-                  style: Theme.of(context).textTheme.bodyText1,
+                  style: Theme.of(context).textTheme.bodyMedium,
                 ),
               ],
             ),

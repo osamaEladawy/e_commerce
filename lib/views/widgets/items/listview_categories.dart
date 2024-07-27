@@ -58,7 +58,7 @@ class Items extends GetView<ItemsControllerImp> {
               ),
               child: Text(
                 "${translateDatabase(categoriesModel.categoriesNameAr, categoriesModel.categoriesName)}",
-                style: Theme.of(context).textTheme.bodyText1!.copyWith(
+                style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                       fontSize: 20,
                       letterSpacing: 1,
                     ),

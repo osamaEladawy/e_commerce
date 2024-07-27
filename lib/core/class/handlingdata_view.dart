@@ -19,11 +19,11 @@ class HandlingDataView extends StatelessWidget {
     Center(child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text("Haye!",style: Theme.of(context).textTheme.headline1!.copyWith(
+        Text("Haye!",style: Theme.of(context).textTheme.headlineMedium!.copyWith(
           color: Colors.teal[800]
         ),),
         const SizedBox(height: 15,),
-        Text("please check internet",style: Theme.of(context).textTheme.bodyText1!.copyWith(
+        Text("please check internet",style: Theme.of(context).textTheme.bodyMedium!.copyWith(
           color: Colors.teal[700]
         ),),
         Lottie.asset(AssetsImages.offline),
@@ -33,12 +33,12 @@ class HandlingDataView extends StatelessWidget {
     Center(child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Text("please,wating!",style: Theme.of(context).textTheme.headline1!.copyWith(
+        Text("please,wating!",style: Theme.of(context).textTheme.headlineMedium!.copyWith(
             color: Colors.blue[400],
            letterSpacing: 1.2,
         ),),
         const SizedBox(height: 15,),
-        Text("Found Error in Server...",style: Theme.of(context).textTheme.bodyText1!.copyWith(
+        Text("Found Error in Server...",style: Theme.of(context).textTheme.bodyMedium!.copyWith(
             color: Colors.blue[300],
            letterSpacing: 1.5,
         ),),
@@ -66,11 +66,11 @@ class HandlingDataRequest extends StatelessWidget {
       Center(child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text("!Haye",style: Theme.of(context).textTheme.headline1!.copyWith(
+          Text("!Haye",style: Theme.of(context).textTheme.headlineMedium!.copyWith(
               color: Colors.teal[800]
           ),),
           const SizedBox(height: 15,),
-          Text("please check internet",style: Theme.of(context).textTheme.bodyText1!.copyWith(
+          Text("please check internet",style: Theme.of(context).textTheme.bodyMedium!.copyWith(
               color: Colors.teal[700]
           ),),
           Lottie.asset(AssetsImages.offline),
@@ -80,12 +80,12 @@ class HandlingDataRequest extends StatelessWidget {
       Center(child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text("!please,waiting",style: Theme.of(context).textTheme.headline1!.copyWith(
+          Text("!please,waiting",style: Theme.of(context).textTheme.headlineLarge!.copyWith(
             color: Colors.blue[400],
             letterSpacing: 1.2,
           ),),
           const SizedBox(height: 15,),
-          Text("...Found Error in Server",style: Theme.of(context).textTheme.bodyText1!.copyWith(
+          Text("...Found Error in Server",style: Theme.of(context).textTheme.bodyMedium!.copyWith(
             color: Colors.blue[300],
             letterSpacing: 1.5,
           ),),

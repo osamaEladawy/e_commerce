@@ -28,7 +28,7 @@ class CustomCardChoose extends StatelessWidget {
           children: [
             Text(
               title,
-              style: Theme.of(context).textTheme.headline1!.copyWith(
+              style: Theme.of(context).textTheme.headlineMedium!.copyWith(
                     color: isCheck ? Colors.white : Colors.red,
                   ),
             ),
@@ -38,7 +38,7 @@ class CustomCardChoose extends StatelessWidget {
             Text(
               content,
               overflow: TextOverflow.ellipsis,
-              style: Theme.of(context).textTheme.bodyText1!.copyWith(
+              style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                     color: isCheck ? Colors.white : Colors.red,
                   ),
             ),

@@ -22,11 +22,11 @@ import 'initialize_color.dart';
       )
     ),
     textTheme: const TextTheme(
-      headline1: TextStyle(
+      headlineMedium: TextStyle(
           fontWeight: FontWeight.bold,
           fontSize: 20,
           color: AppColors.colorTitle),
-      bodyText1: TextStyle(
+      bodyMedium: TextStyle(
           fontWeight: FontWeight.bold,
           fontSize: 16,
           color: AppColors.color,
@@ -54,11 +54,11 @@ import 'initialize_color.dart';
         )
   ),
    textTheme: const TextTheme(
-    headline1: TextStyle(
+    headlineMedium: TextStyle(
         fontWeight: FontWeight.bold,
         fontSize: 20,
         color: AppColors.colorTitle),
-    bodyText1: TextStyle(
+    bodyMedium: TextStyle(
         fontWeight: FontWeight.bold,
         fontSize: 16,
         color: AppColors.color,
@@ -99,11 +99,11 @@ import 'initialize_color.dart';
         )
     ),
     textTheme: const TextTheme(
-      headline1: TextStyle(
+      headlineMedium: TextStyle(
           fontWeight: FontWeight.bold,
           fontSize: 20,
           color: AppColors.colorTitle),
-      bodyText1: TextStyle(
+      bodyMedium: TextStyle(
           fontWeight: FontWeight.bold,
           fontSize: 16,
           color: AppColors.color,
@@ -141,11 +141,11 @@ import 'initialize_color.dart';
           )
       ),
       textTheme: const TextTheme(
-        headline1: TextStyle(
+        headlineMedium: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 20,
             color: AppColors.colorTitle),
-        bodyText1: TextStyle(
+        bodyMedium: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 16,
             color: AppColors.color,

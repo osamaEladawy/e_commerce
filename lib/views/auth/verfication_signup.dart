@@ -20,7 +20,7 @@ class VerficationSignUp extends StatelessWidget {
         elevation: 0,
         title: Text(
           "39".tr,
-          style: Theme.of(context).textTheme.bodyText1,
+          style: Theme.of(context).textTheme.bodyMedium,
         ),
       ),
       body: SafeArea(
@@ -65,7 +65,7 @@ class VerficationSignUp extends StatelessWidget {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text("Resend Code",style: Theme.of(context).textTheme.bodyText1,),
+                        Text("Resend Code",style: Theme.of(context).textTheme.bodyMedium,),
                         IconButton(onPressed: (){
                           controller.resendVerficationCode();
                         }, icon:const Icon(Icons.send,size: 18,))

@@ -22,7 +22,7 @@ class ForgetPassword extends StatelessWidget {
           elevation: 0,
           title: Text(
             "45".tr,
-            style: Theme.of(context).textTheme.bodyText1,
+            style: Theme.of(context).textTheme.bodyMedium,
           ),
         ),
         body: SafeArea(
@@ -65,7 +65,7 @@ class ForgetPassword extends StatelessWidget {
                           "49".tr,
                           style: Theme.of(context)
                               .textTheme
-                              .bodyText1!
+                              .bodyMedium!
                               .copyWith(color: Colors.white70),
                         ),
                         onPressed: () {
